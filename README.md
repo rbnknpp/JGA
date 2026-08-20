@@ -1,5 +1,7 @@
 # JGA Düsseldorf 🥃
 
+Live: https://rbnknpp.github.io/JGA/
+
 Kleine Mini-Webapp für den Junggesellenabschied in Düsseldorf. Läuft im
 Browser, lässt sich aber wie eine App auf den Homescreen legen ("Zum
 Home-Bildschirm hinzufügen" in Safari/Chrome).
