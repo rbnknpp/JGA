@@ -7,6 +7,7 @@ import { Setup } from "./components/Setup";
 import { TaskCard } from "./components/TaskCard";
 import { ProgressDots } from "./components/ProgressDots";
 import { FinishScreen } from "./components/FinishScreen";
+import { Gallery } from "./components/Gallery";
 
 const ME_KEY = "jga_me";
 
@@ -15,6 +16,7 @@ function App() {
   const { progress, submitTask, approveTask, rejectTask, uploadPhoto } = useProgress();
   const [me, setMe] = useState<string | null>(() => localStorage.getItem(ME_KEY));
   const [showSetup, setShowSetup] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function withErrorHandling(action: () => Promise<void>) {
@@ -38,6 +40,9 @@ function App() {
 
   const allDone = currentIndex === -1;
   const currentTask = !allDone ? TASKS[currentIndex] : null;
+  const hasPhotos = TASKS.some(
+    (t) => progress[t.id]?.status === "approved" && progress[t.id]?.photoUrl,
+  );
 
   function pickMe(name: string) {
     localStorage.setItem(ME_KEY, name);
@@ -86,14 +91,26 @@ function App() {
             </button>
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => setShowSetup(true)}
-          className="rounded-full border border-neutral-700 p-2 text-neutral-400"
-          aria-label="Einstellungen"
-        >
-          ⚙️
-        </button>
+        <div className="flex items-center gap-2">
+          {hasPhotos && (
+            <button
+              type="button"
+              onClick={() => setShowGallery(true)}
+              className="rounded-full border border-neutral-700 p-2 text-neutral-400"
+              aria-label="Galerie"
+            >
+              📸
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => setShowSetup(true)}
+            className="rounded-full border border-neutral-700 p-2 text-neutral-400"
+            aria-label="Einstellungen"
+          >
+            ⚙️
+          </button>
+        </div>
       </header>
 
       {!allDone && (
@@ -135,6 +152,8 @@ function App() {
           }}
         />
       )}
+
+      {showGallery && <Gallery progress={progress} onClose={() => setShowGallery(false)} />}
     </div>
   );
 }
