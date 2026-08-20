@@ -14,23 +14,26 @@ schaltet sich die nächste Aufgabe für alle vier Handys gleichzeitig frei.
 
 ```bash
 npm install
-cp .env.example .env
-# .env mit den Firebase-Config-Werten befüllen (siehe unten)
 npm run dev
 ```
 
-Ohne Firebase-Config läuft die App trotzdem lokal (Fortschritt wird nur im
-Browser des jeweiligen Handys gespeichert, aber nicht zwischen den Geräten
-synchronisiert).
+Die Firebase-Config des Projekts `junggesellenabschied-bb0f6` ist bereits in
+[`src/firebase.ts`](src/firebase.ts) hinterlegt (Firebase-Web-Configs sind
+öffentliche Kennungen, keine Geheimnisse – die eigentliche Absicherung
+passiert über die Firestore/Storage-Regeln unten). `.env` ist nur nötig, um
+stattdessen ein anderes Firebase-Projekt anzusprechen.
 
-### Firebase einrichten (für Live-Sync zwischen allen Handys)
+### Firebase-Projekt fertig einrichten
 
-1. [firebase.google.com](https://firebase.google.com/) → neues Projekt
-   (kostenloser Spark-Plan, keine Kreditkarte nötig)
-2. **Build → Firestore Database** → Datenbank erstellen (Testmodus)
-3. **Build → Storage** → aktivieren (Testmodus, für die Fotos)
-4. Projekteinstellungen → "Meine Apps" → Web-App hinzufügen → die
-   angezeigte `firebaseConfig` in `.env` übertragen
+Das Projekt existiert schon, aber Firestore und Storage müssen einmalig
+aktiviert werden:
+
+1. [console.firebase.google.com](https://console.firebase.google.com/) →
+   Projekt "Junggesellenabschied" öffnen
+2. **Build → Firestore Database** → "Datenbank erstellen" (Testmodus)
+3. **Build → Storage** → "Los geht's" (Testmodus, für die Fotos)
+4. In beiden dann unter "Regeln" die untenstehenden Regeln einfügen und
+   veröffentlichen
 
 Empfohlene Firestore/Storage-Regeln für den Partyabend (offen, aber nur für
 die 2 genutzten Collections/den Fotos-Ordner):
@@ -69,9 +72,7 @@ baut die App bei jedem Push auf `main` und veröffentlicht sie auf GitHub
 Pages.
 
 1. Repo-Einstellungen → **Pages** → Source: "GitHub Actions"
-2. Repo-Einstellungen → **Secrets and variables → Actions** → die 6
-   `VITE_FIREBASE_*`-Werte aus `.env.example` als Repository-Secrets anlegen
-3. Push auf `main` → die App landet unter
+2. Push auf `main` → die App landet unter
    `https://<username>.github.io/JGA/`
 
 Danach auf dem Handy die URL öffnen und über den Browser
