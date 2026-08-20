@@ -15,6 +15,20 @@ function App() {
   const { progress, submitTask, approveTask, rejectTask, uploadPhoto } = useProgress();
   const [me, setMe] = useState<string | null>(() => localStorage.getItem(ME_KEY));
   const [showSetup, setShowSetup] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function withErrorHandling(action: () => Promise<void>) {
+    try {
+      setError(null);
+      await action();
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? `Speichern fehlgeschlagen: ${err.message}`
+          : "Speichern fehlgeschlagen. Bitte nochmal versuchen.",
+      );
+    }
+  }
 
   const groomName = config.participants[config.groomIndex] ?? "der Bräutigam";
 
@@ -38,13 +52,16 @@ function App() {
           onPick={pickMe}
           onEditNames={() => setShowSetup(true)}
         />
+        {error && <ErrorBanner message={error} onDismiss={() => setError(null)} />}
         {showSetup && (
           <Setup
             initial={config}
             onClose={() => setShowSetup(false)}
             onSave={(next) => {
-              setConfig(next);
-              setShowSetup(false);
+              withErrorHandling(async () => {
+                await setConfig(next);
+                setShowSetup(false);
+              });
             }}
           />
         )}
@@ -75,18 +92,22 @@ function App() {
         </div>
       )}
 
+      {error && <ErrorBanner message={error} onDismiss={() => setError(null)} />}
+
       {currentTask ? (
         <TaskCard
           task={currentTask}
           groomName={groomName}
           progress={progress[currentTask.id]}
           me={me}
-          onSubmit={async (file, note) => {
-            const photoUrl = file ? await uploadPhoto(file) : undefined;
-            await submitTask(currentTask.id, me, { photoUrl, note: note || undefined });
-          }}
-          onApprove={() => approveTask(currentTask.id, me)}
-          onReject={() => rejectTask(currentTask.id, me)}
+          onSubmit={(file, note) =>
+            withErrorHandling(async () => {
+              const photoUrl = file ? await uploadPhoto(file) : undefined;
+              await submitTask(currentTask.id, me, { photoUrl, note: note || undefined });
+            })
+          }
+          onApprove={() => withErrorHandling(() => approveTask(currentTask.id, me))}
+          onReject={() => withErrorHandling(() => rejectTask(currentTask.id, me))}
         />
       ) : (
         <FinishScreen groomName={groomName} />
@@ -97,11 +118,24 @@ function App() {
           initial={config}
           onClose={() => setShowSetup(false)}
           onSave={(next) => {
-            setConfig(next);
-            setShowSetup(false);
+            withErrorHandling(async () => {
+              await setConfig(next);
+              setShowSetup(false);
+            });
           }}
         />
       )}
+    </div>
+  );
+}
+
+function ErrorBanner({ message, onDismiss }: { message: string; onDismiss: () => void }) {
+  return (
+    <div className="w-full max-w-md rounded-lg bg-rose-950 border border-rose-800 px-4 py-3 text-sm text-rose-200 flex items-start gap-3">
+      <span className="flex-1">⚠️ {message}</span>
+      <button type="button" onClick={onDismiss} className="text-rose-400 shrink-0">
+        ✕
+      </button>
     </div>
   );
 }
