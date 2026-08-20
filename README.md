@@ -4,6 +4,9 @@ Kleine Mini-Webapp für den Junggesellenabschied in Düsseldorf. Läuft im
 Browser, lässt sich aber wie eine App auf den Homescreen legen ("Zum
 Home-Bildschirm hinzufügen" in Safari/Chrome).
 
+Live unter: `https://rbnknpp.github.io/JGA/` (sobald GitHub Pages aktiviert
+und die Firebase-Secrets hinterlegt sind, siehe unten).
+
 Die Crew bekommt nacheinander 16 Aufgaben (Foto-Challenges, Bar-Dares,
 Sozial-Dares, Bräutigam-Spezial). Wer eine Aufgabe erledigt hat, lädt ein
 Foto hoch (oder schreibt eine Notiz) und reicht es ein. Einer der anderen
