@@ -44,6 +44,11 @@ function App() {
     setMe(name);
   }
 
+  function switchMe() {
+    localStorage.removeItem(ME_KEY);
+    setMe(null);
+  }
+
   if (!me) {
     return (
       <>
@@ -74,7 +79,12 @@ function App() {
       <header className="w-full max-w-md flex items-center justify-between">
         <div>
           <h1 className="text-lg font-bold text-neutral-100">🥃 JGA Düsseldorf</h1>
-          <p className="text-xs text-neutral-500">Angemeldet als {me}</p>
+          <p className="text-xs text-neutral-500">
+            Angemeldet als {me} ·{" "}
+            <button type="button" onClick={switchMe} className="underline">
+              wechseln
+            </button>
+          </p>
         </div>
         <button
           type="button"

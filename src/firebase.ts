@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeFirestore } from "firebase/firestore";
 
 // Firebase web config values are public identifiers, not secrets - access
 // control happens via Firestore security rules, not by hiding these.
@@ -21,4 +21,10 @@ export const firebaseConfigured = Boolean(
 );
 
 export const app = firebaseConfigured ? initializeApp(firebaseConfig) : null;
-export const db = app ? getFirestore(app) : null;
+// Auto-detect long-polling instead of Firestore's default streaming
+// transport - restrictive networks/proxies (bar wifi, corporate networks)
+// often block the streaming connection silently, which otherwise leaves
+// writes stuck without ever resolving or throwing.
+export const db = app
+  ? initializeFirestore(app, { experimentalAutoDetectLongPolling: true })
+  : null;
