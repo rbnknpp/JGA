@@ -82,7 +82,7 @@ function App() {
           progress={progress[currentTask.id]}
           me={me}
           onSubmit={async (file, note) => {
-            const photoUrl = file ? await uploadPhoto(currentTask.id, file) : undefined;
+            const photoUrl = file ? await uploadPhoto(file) : undefined;
             await submitTask(currentTask.id, me, { photoUrl, note: note || undefined });
           }}
           onApprove={() => approveTask(currentTask.id, me)}

@@ -22,23 +22,24 @@ npm run dev
 Die Firebase-Config des Projekts `junggesellenabschied-bb0f6` ist bereits in
 [`src/firebase.ts`](src/firebase.ts) hinterlegt (Firebase-Web-Configs sind
 öffentliche Kennungen, keine Geheimnisse – die eigentliche Absicherung
-passiert über die Firestore/Storage-Regeln unten). `.env` ist nur nötig, um
+passiert über die Firestore-Regeln unten). `.env` ist nur nötig, um
 stattdessen ein anderes Firebase-Projekt anzusprechen.
+
+Fotos werden komprimiert (siehe [`src/lib/compressImage.ts`](src/lib/compressImage.ts))
+direkt als Data-URL in Firestore gespeichert statt in Firebase Storage – Storage
+braucht mittlerweile den kostenpflichtigen Blaze-Tarif, das umgeht diese App bewusst.
 
 ### Firebase-Projekt fertig einrichten
 
-Das Projekt existiert schon, aber Firestore und Storage müssen einmalig
-aktiviert werden:
+Das Projekt existiert schon, aber Firestore muss einmalig aktiviert werden:
 
 1. [console.firebase.google.com](https://console.firebase.google.com/) →
    Projekt "Junggesellenabschied" öffnen
 2. **Build → Firestore Database** → "Datenbank erstellen" (Testmodus)
-3. **Build → Storage** → "Los geht's" (Testmodus, für die Fotos)
-4. In beiden dann unter "Regeln" die untenstehenden Regeln einfügen und
-   veröffentlichen
+3. Dort unter "Regeln" die untenstehenden Regeln einfügen und veröffentlichen
 
-Empfohlene Firestore/Storage-Regeln für den Partyabend (offen, aber nur für
-die 2 genutzten Collections/den Fotos-Ordner):
+Empfohlene Firestore-Regeln für den Partyabend (offen, aber nur für die 2
+genutzten Collections):
 
 ```
 // Firestore rules
@@ -47,16 +48,6 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /config/{doc} { allow read, write: if true; }
     match /progress/{doc} { allow read, write: if true; }
-  }
-}
-```
-
-```
-// Storage rules
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /photos/{allPaths=**} { allow read, write: if true; }
   }
 }
 ```

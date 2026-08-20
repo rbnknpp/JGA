@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
-import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-import { db, storage } from "../firebase";
+import { db } from "../firebase";
+import { compressImageToDataUrl } from "../lib/compressImage";
 import type { Progress, ProgressMap } from "../types";
 
 const LOCAL_KEY = "jga_progress";
@@ -37,7 +37,12 @@ export function useProgress() {
 
   const writeTaskProgress = useCallback(async (taskId: string, entry: Progress) => {
     if (db) {
-      await setDoc(doc(db, "progress", taskId), entry, { merge: true });
+      // Firestore rejects explicit `undefined` field values, so drop them
+      // rather than writing e.g. photoUrl: undefined for a note-only submission.
+      const clean = Object.fromEntries(
+        Object.entries(entry).filter(([, value]) => value !== undefined),
+      ) as Progress;
+      await setDoc(doc(db, "progress", taskId), clean, { merge: true });
     } else {
       setProgress((prev) => {
         const next = { ...prev, [taskId]: { ...prev[taskId], ...entry } };
@@ -47,14 +52,8 @@ export function useProgress() {
     }
   }, []);
 
-  const uploadPhoto = useCallback(async (taskId: string, file: File): Promise<string> => {
-    if (storage) {
-      const path = `photos/${taskId}/${Date.now()}-${file.name}`;
-      const fileRef = storageRef(storage, path);
-      await uploadBytes(fileRef, file);
-      return getDownloadURL(fileRef);
-    }
-    return URL.createObjectURL(file);
+  const uploadPhoto = useCallback(async (file: File): Promise<string> => {
+    return compressImageToDataUrl(file);
   }, []);
 
   const submitTask = useCallback(
