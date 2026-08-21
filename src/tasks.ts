@@ -106,9 +106,9 @@ export const TASKS: TaskDef[] = [
     id: "t10",
     order: 10,
     category: "foto",
-    title: "Jan-Wellem-Pose",
+    title: "Altbier-Pyramide",
     description:
-      "Auf dem Marktplatz steht die berühmte Reiterstatue von Jan Wellem. Stellt die Pose als lebendes Denkmal nach – einer \"hoch zu Ross\" auf den Schultern eines anderen. Foto mit der echten Statue im Hintergrund.",
+      "Baut aus euren leeren Altbier-Gläsern einen möglichst hohen Turm oder eine Pyramide auf dem Tisch. Foto vom Bauwerk, bevor es umkippt.",
     requiresPhoto: true,
   },
   {
