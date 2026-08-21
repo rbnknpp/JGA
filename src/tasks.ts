@@ -25,9 +25,9 @@ export const TASKS: TaskDef[] = [
     id: "t01",
     order: 1,
     category: "foto",
-    title: "Der Startschuss",
+    title: "Auftakt an der Raststätte",
     description:
-      "Gruppenfoto von allen vieren mit mindestens 8 Bier gut sichtbar auf dem Tisch. Alle müssen lachen, keine Ausreden.",
+      "An der Raststätte auf dem Weg nach Düsseldorf trinkt jeder von euch ein Bier – aber jeder eine andere Sorte. Foto von allen vieren mit ihren unterschiedlichen Bieren.",
     requiresPhoto: true,
   },
   {
@@ -78,10 +78,10 @@ export const TASKS: TaskDef[] = [
   {
     id: "t07",
     order: 7,
-    category: "braeutigam",
-    title: "Rat fürs Eheleben",
+    category: "foto",
+    title: "Biertisch-Beweis",
     description:
-      "{groom} zeigt einer fremden Person den Ehering-Finger und bittet um einen ernstgemeinten Rat fürs Eheleben. Foto mit der Person.",
+      "Gruppenfoto von allen vieren mit mindestens 8 Bier gut sichtbar auf dem Tisch. Alle müssen lachen, keine Ausreden.",
     requiresPhoto: true,
   },
   {
@@ -106,18 +106,18 @@ export const TASKS: TaskDef[] = [
     id: "t10",
     order: 10,
     category: "foto",
-    title: "Currywurst-Schnurrbart",
+    title: "Jan-Wellem-Pose",
     description:
-      "Alle vier mit einem sauberen Currywurst-Soßen-Schnurrbart auf einem Foto. Muss deutlich zu erkennen sein.",
+      "Auf dem Marktplatz steht die berühmte Reiterstatue von Jan Wellem. Stellt die Pose als lebendes Denkmal nach – einer \"hoch zu Ross\" auf den Schultern eines anderen. Foto mit der echten Statue im Hintergrund.",
     requiresPhoto: true,
   },
   {
     id: "t11",
     order: 11,
     category: "sozial",
-    title: "Ständchen",
+    title: "Bierdeckel-Autogramm",
     description:
-      "Findet eine fremde Person, die euch (oder direkt {groom}) ein kurzes Ständchen für die bevorstehende Hochzeit singt. Video als Beweis.",
+      "Lasst euch von einer fremden Person auf einem Bierdeckel einen Ehe-Spruch oder Glückwunsch für {groom} aufschreiben und unterschreiben. Foto vom beschriebenen Bierdeckel zusammen mit der Person.",
     requiresPhoto: true,
   },
   {
