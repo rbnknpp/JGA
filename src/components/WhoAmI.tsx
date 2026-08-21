@@ -17,7 +17,7 @@ export function WhoAmI({ participants, groomName, onPick, onEditNames }: Props) 
           Erfolg dabei!
         </p>
         <p className="mt-3 text-sm font-medium text-amber-300">
-          Auf {groomName} – auf einen unvergesslichen letzten Abend als Single! 🍻
+          Auf {groomName} – auf einen unvergesslichen letzten Abend als Junggeselle! 🍻
         </p>
       </div>
 
