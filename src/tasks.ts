@@ -106,9 +106,9 @@ export const TASKS: TaskDef[] = [
     id: "t10",
     order: 10,
     category: "foto",
-    title: "Altbier-Pyramide",
+    title: "Grimassen-Schaufenster",
     description:
-      "Baut aus euren leeren Altbier-Gläsern einen möglichst hohen Turm oder eine Pyramide auf dem Tisch. Foto vom Bauwerk, bevor es umkippt.",
+      "Sucht euch ein spiegelndes Schaufenster in der Altstadt oder auf der Kö und macht ein Foto mit den vier schlimmsten Grimassen, die ihr hinbekommt.",
     requiresPhoto: true,
   },
   {
