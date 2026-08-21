@@ -33,6 +33,7 @@ function App() {
   }
 
   const groomName = config.participants[config.groomIndex] ?? "der Bräutigam";
+  const crewNames = config.participants.filter((_, i) => i !== config.groomIndex);
 
   const currentIndex = useMemo(() => {
     return TASKS.findIndex((t) => progress[t.id]?.status !== "approved");
@@ -137,7 +138,7 @@ function App() {
           onReject={() => withErrorHandling(() => rejectTask(currentTask.id, me))}
         />
       ) : (
-        <FinishScreen groomName={groomName} />
+        <FinishScreen groomName={groomName} crewNames={crewNames} />
       )}
 
       {showSetup && (
