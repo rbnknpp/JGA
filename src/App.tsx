@@ -60,6 +60,7 @@ function App() {
       <>
         <WhoAmI
           participants={config.participants}
+          groomName={groomName}
           onPick={pickMe}
           onEditNames={() => setShowSetup(true)}
         />
