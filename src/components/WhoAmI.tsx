@@ -1,3 +1,5 @@
+import { ShareLink } from "./ShareLink";
+
 interface Props {
   participants: string[];
   groomName: string;
@@ -20,6 +22,8 @@ export function WhoAmI({ participants, groomName, onPick, onEditNames }: Props) 
           Auf {groomName} – auf einen unvergesslichen letzten Abend als Junggeselle! 🍻
         </p>
       </div>
+
+      <ShareLink />
 
       <div className="text-center">
         <h2 className="text-lg font-bold">Wer bist du?</h2>
