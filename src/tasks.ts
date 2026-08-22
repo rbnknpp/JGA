@@ -105,10 +105,10 @@ export const TASKS: TaskDef[] = [
   {
     id: "t10",
     order: 10,
-    category: "foto",
-    title: "Grimassen-Schaufenster",
+    category: "bar",
+    title: "Kellner-Roulette",
     description:
-      "Sucht euch ein spiegelndes Schaufenster in der Altstadt oder auf der Kö und macht ein Foto mit den vier schlimmsten Grimassen, die ihr hinbekommt.",
+      "Jeder von euch bestellt an der Theke einen Shot – aber der Kellner oder die Kellnerin entscheidet, welchen ihr bekommt. Danach ein Foto: im besten Fall zusammen mit dem Kellner bzw. der Kellnerin und den Shots, sonst ein Selfie mit den Shots.",
     requiresPhoto: true,
   },
   {
