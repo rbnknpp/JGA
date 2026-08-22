@@ -88,9 +88,9 @@ export const TASKS: TaskDef[] = [
     id: "t08",
     order: 8,
     category: "foto",
-    title: "Am Rheinturm",
+    title: "Fremden-Mega-Gruppenfoto",
     description:
-      "Gruppenfoto vor dem Rheinturm – alle vier springen gleichzeitig in die Luft. Wiederholen, bis das Timing sitzt.",
+      "Ladet 3-4 völlig fremde Leute ein, spontan mit euch ein großes Gruppenfoto mitten in der Stadt zu machen.",
     requiresPhoto: true,
   },
   {
