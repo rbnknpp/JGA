@@ -33,37 +33,37 @@ export const TASKS: TaskDef[] = [
   {
     id: "t02",
     order: 2,
-    category: "braeutigam",
-    title: "Die erste Rede",
+    category: "sozial",
+    title: "Julians Fremden-Duell",
     description:
-      "{groom} hält vor mindestens 3 fremden Personen einen kurzen, überzeugenden Toast auf die Braut. Video oder Foto mit den Fremden im Bild.",
+      "Julian sucht sich eine fremde Person und fordert sie zu einer Runde Schnick-Schnack-Schnuck heraus – Best of 3. Egal wer gewinnt, danach ein Foto mit dem Gegner.",
     requiresPhoto: true,
   },
   {
     id: "t03",
     order: 3,
     category: "sozial",
-    title: "Schwiegersohn des Jahres",
+    title: "Elias' Armdrück-Duell",
     description:
-      "Sprecht eine Gruppe Fremder an und lasst sie abstimmen, wer von euch vieren der beste Schwiegersohn wäre. Beweisfoto mit der Gruppe.",
+      "Elias fordert eine fremde Person zu einer Runde Armdrücken heraus. Der Sieger bekommt Szenenapplaus von der Truppe. Beweisfoto mit dem Gegner, egal wie's ausgeht.",
     requiresPhoto: true,
   },
   {
     id: "t04",
     order: 4,
-    category: "foto",
-    title: "Längste Theke der Welt",
+    category: "braeutigam",
+    title: "Toms Ehe-Pitch",
     description:
-      "Foto in der Altstadt mit einem Getränk in jeder Hand – die Düsseldorfer Altstadt nennt sich schließlich \"längste Theke der Welt\".",
+      "{groom} hat 60 Sekunden, um einer fremden Person zu erklären, warum er der perfekte Ehemann wird – ohne ein einziges \"äh\" oder \"ähm\". Verhaspelt er sich, geht's von vorne los. Video oder Foto mit der reagierenden Person.",
     requiresPhoto: true,
   },
   {
     id: "t05",
     order: 5,
-    category: "bar",
-    title: "Killepitsch-Verkostung",
+    category: "sozial",
+    title: "Robins Komplimente-Battle",
     description:
-      "Bestellt einen Killepitsch (den Düsseldorfer Kräuterlikör). {groom} bekommt die Augen verbunden und muss erraten, was er trinkt.",
+      "Robin macht einer fremden Person das kreativste Kompliment des Abends – \"schön\" oder \"hübsch\" sind verboten. Die Person bewertet mit Daumen hoch oder runter. Beweisfoto mit Kompliment-Empfänger und Daumen-Geste.",
     requiresPhoto: true,
   },
   {
