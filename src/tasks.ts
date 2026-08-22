@@ -33,10 +33,10 @@ export const TASKS: TaskDef[] = [
   {
     id: "t02",
     order: 2,
-    category: "braeutigam",
-    title: "Die erste Rede",
+    category: "bar",
+    title: "Kiosk-Runde",
     description:
-      "{groom} hält vor mindestens 3 fremden Personen einen kurzen, überzeugenden Toast auf die Braut. Video oder Foto mit den Fremden im Bild.",
+      "Sucht euch einen x-beliebigen Kiosk in Düsseldorf. Jeder von euch kauft sich dort ein Bier, und ihr trinkt es gemeinsam direkt davor. Gruppenfoto mit allen vieren und dem Kiosk-Schild gut sichtbar im Hintergrund.",
     requiresPhoto: true,
   },
   {
