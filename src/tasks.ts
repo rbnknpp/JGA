@@ -33,6 +33,15 @@ export const TASKS: TaskDef[] = [
   {
     id: "t02",
     order: 2,
+    category: "braeutigam",
+    title: "Die erste Rede",
+    description:
+      "{groom} hält vor mindestens 3 fremden Personen einen kurzen, überzeugenden Toast auf die Braut. Video oder Foto mit den Fremden im Bild.",
+    requiresPhoto: true,
+  },
+  {
+    id: "t03",
+    order: 3,
     category: "sozial",
     title: "Julians Fremden-Duell",
     description:
@@ -40,30 +49,21 @@ export const TASKS: TaskDef[] = [
     requiresPhoto: true,
   },
   {
-    id: "t03",
-    order: 3,
-    category: "sozial",
-    title: "Elias' Armdrück-Duell",
-    description:
-      "Elias fordert eine fremde Person zu einer Runde Armdrücken heraus. Der Sieger bekommt Szenenapplaus von der Truppe. Beweisfoto mit dem Gegner, egal wie's ausgeht.",
-    requiresPhoto: true,
-  },
-  {
     id: "t04",
     order: 4,
-    category: "braeutigam",
-    title: "Toms Ehe-Pitch",
+    category: "foto",
+    title: "Längste Theke der Welt",
     description:
-      "{groom} hat 60 Sekunden, um einer fremden Person zu erklären, warum er der perfekte Ehemann wird – ohne ein einziges \"äh\" oder \"ähm\". Verhaspelt er sich, geht's von vorne los. Video oder Foto mit der reagierenden Person.",
+      "Foto in der Altstadt mit einem Getränk in jeder Hand – die Düsseldorfer Altstadt nennt sich schließlich \"längste Theke der Welt\".",
     requiresPhoto: true,
   },
   {
     id: "t05",
     order: 5,
-    category: "sozial",
-    title: "Robins Komplimente-Battle",
+    category: "bar",
+    title: "Killepitsch-Verkostung",
     description:
-      "Robin macht einer fremden Person das kreativste Kompliment des Abends – \"schön\" oder \"hübsch\" sind verboten. Die Person bewertet mit Daumen hoch oder runter. Beweisfoto mit Kompliment-Empfänger und Daumen-Geste.",
+      "Bestellt einen Killepitsch (den Düsseldorfer Kräuterlikör). {groom} bekommt die Augen verbunden und muss erraten, was er trinkt.",
     requiresPhoto: true,
   },
   {
@@ -78,10 +78,10 @@ export const TASKS: TaskDef[] = [
   {
     id: "t07",
     order: 7,
-    category: "foto",
-    title: "Biertisch-Beweis",
+    category: "sozial",
+    title: "Elias' Armdrück-Duell",
     description:
-      "Gruppenfoto von allen vieren mit mindestens 8 Bier gut sichtbar auf dem Tisch. Alle müssen lachen, keine Ausreden.",
+      "Elias fordert eine fremde Person zu einer Runde Armdrücken heraus. Der Sieger bekommt Szenenapplaus von der Truppe. Beweisfoto mit dem Gegner, egal wie's ausgeht.",
     requiresPhoto: true,
   },
   {
@@ -132,10 +132,10 @@ export const TASKS: TaskDef[] = [
   {
     id: "t13",
     order: 13,
-    category: "foto",
-    title: "Kö-Models",
+    category: "braeutigam",
+    title: "Toms Ehe-Pitch",
     description:
-      "Foto auf der Königsallee vor einem möglichst teuren Schaufenster – alle vier posieren wie Models für die Auslage.",
+      "{groom} hat 60 Sekunden, um einer fremden Person zu erklären, warum er der perfekte Ehemann wird – ohne ein einziges \"äh\" oder \"ähm\". Verhaspelt er sich, geht's von vorne los. Video oder Foto mit der reagierenden Person.",
     requiresPhoto: true,
   },
   {
@@ -151,9 +151,9 @@ export const TASKS: TaskDef[] = [
     id: "t15",
     order: 15,
     category: "sozial",
-    title: "Wer errät die Braut",
+    title: "Robins Komplimente-Battle",
     description:
-      "Lasst eine fremde Person raten, wer von euch vieren bald heiratet – ohne Hinweise zu geben. Foto mit der ratenden Person und ihrer Antwort (z.B. auf Zettel geschrieben).",
+      "Robin macht einer fremden Person das kreativste Kompliment des Abends – \"schön\" oder \"hübsch\" sind verboten. Die Person bewertet mit Daumen hoch oder runter. Beweisfoto mit Kompliment-Empfänger und Daumen-Geste.",
     requiresPhoto: true,
   },
   {
